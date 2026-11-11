@@ -1,0 +1,15 @@
+{
+  "name": "tide-rider",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A coastal pelican cycling game with procedural 3D scenery.",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "lucide-static": "1.43.0",
+    "three": "0.187.0"
+  }
+}

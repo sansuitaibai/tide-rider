@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#132321">
+<title>潮汐骑手 · Tide Rider</title>
+<style>/* STYLES */</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="brand-mark" data-icon="waves"></span><div><h1>潮汐骑手</h1><div class="brand-en">TIDE RIDER</div></div></div>
+  <div class="route"><span data-icon="map-pin"></span><span>黄金海岸</span><span class="route-id">/ &nbsp; 01</span></div>
+  <nav class="top-actions" aria-label="游戏设置">
+    <button id="trophies" class="trophy-btn" title="成就" aria-haspopup="dialog"><span data-icon="trophy"></span><span class="trophy-label">成就</span><span id="ach-count">0/14</span></button>
+    <span class="separator"></span>
+    <button id="sound" class="icon-btn" title="开启声音" aria-label="开启声音" aria-pressed="false"><span data-icon="volume-x"></span></button>
+    <button id="pause" class="icon-btn" title="暂停 (P)" aria-label="暂停" aria-pressed="false"><span data-icon="pause"></span></button>
+    <button id="full" class="icon-btn full" title="全屏" aria-label="全屏"><span data-icon="maximize"></span></button>
+  </nav>
+</header>
+<main id="stage" aria-label="黄金海岸骑行赛道">
+  <canvas id="game" aria-label="鹈鹕骑车抓鱼的实时三维画面"></canvas>
+  <div class="vignette"></div>
+  <div class="scene-heading">
+    <div class="eyebrow"><i></i> PACIFIC COAST <span>01</span></div>
+    <h2>黄金海岸</h2>
+    <div class="scene-caption">GOLDEN COAST</div>
+  </div>
+  <section class="hud" aria-label="骑行数据">
+    <div class="metric speed"><div class="metric-label"><span data-icon="gauge"></span> 速度</div><div class="metric-value"><strong id="speed">32</strong><small>KM/H</small></div><div class="speed-bar"><i id="speed-bar"></i></div></div>
+    <div class="metric fish"><div class="metric-label"><span data-icon="fish"></span> 渔获</div><div class="metric-value"><strong id="fish">00</strong><small>条</small></div><div class="metric-foot" id="streak">连抓 00</div></div>
+  </section>
+  <div id="notices" class="notices" aria-live="polite"></div>
+  <div class="scene-bottom">
+    <div class="scene-left">
+      <button id="auto" class="auto active" title="切换自动驾驶" aria-pressed="true"><i></i><span id="auto-label">自动驾驶</span><span data-icon="chevrons-right"></span></button>
+      <span class="distance" title="骑行距离"><span data-icon="route"></span> <span id="distance">0.00 km</span></span>
+    </div>
+    <div class="time-panel">
+      <div><span id="time-icon" data-icon="sunset"></span><strong id="phase">黄昏</strong><span id="clock">18:36</span></div>
+      <input id="time" type="range" min="0" max="999" value="30" aria-label="调整昼夜时间" title="调整昼夜时间">
+    </div>
+  </div>
+  <div id="pause-layer" class="pause-layer" hidden><button id="resume"><span data-icon="play"></span> 继续骑行</button></div>
+  <div id="unavailable" class="pause-layer" hidden><p>无法启动 3D 画面。请启用浏览器硬件加速，或用较新版本的 Edge、Chrome 或 Firefox 打开。</p></div>
+</main>
+<footer class="deck">
+  <div class="deck-title"><span data-icon="gamepad-2"></span><div>骑行控制<small>CONTROLS</small></div></div>
+  <div class="drive" aria-label="骑行控制">
+    <div class="control-pair"><button class="key" data-key="w" aria-label="加速 (W)"><kbd>W</kbd><span>加速</span></button><button class="key" data-key="s" aria-label="减速 (S)"><kbd>S</kbd><span>减速</span></button></div>
+    <div class="control-pair"><button class="key" data-key="a" aria-label="向左变道 (A)"><kbd>A</kbd><span>左移</span></button><button class="key" data-key="d" aria-label="向右变道 (D)"><kbd>D</kbd><span>右移</span></button></div>
+    <div class="control-pair"><button class="key" data-key=" " aria-label="跳跃 (空格)"><kbd class="space">SPACE</kbd><span>跳跃</span></button><button class="key" data-key="t" aria-label="展翅抬轮 (T)"><kbd>T</kbd><span>抬轮</span></button></div>
+  </div>
+  <div class="camera-wrap">
+    <button id="camera-btn" class="camera-btn" title="选择镜头 (C 切换)" aria-expanded="false" aria-controls="camera-menu"><span class="camera-icon" data-icon="video"></span><span class="camera-copy"><small>镜头 <span id="camera-num">01</span>/05</small><strong id="camera-name">跟随</strong></span><span class="chev" data-icon="chevron-up"></span></button>
+    <div id="camera-menu" class="camera-menu" hidden aria-label="镜头列表"></div>
+  </div>
+</footer>
+<dialog id="achievement-dialog">
+  <div class="dialog-top"><div class="dialog-icon" data-icon="trophy"></div><div><h2>骑行成就</h2><small id="ach-total">0 / 14 已解锁</small></div><button class="icon-btn" id="close-ach" aria-label="关闭成就" title="关闭"><span data-icon="x"></span></button></div>
+  <div id="achievement-list"></div>
+</dialog>
+<script>/* SCRIPT */</script>
+</body>
+</html>
